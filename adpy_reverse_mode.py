@@ -82,14 +82,14 @@ class vallder:
         resdict.append(res) # dictinary containing results
         return res
 
-	def __div__(self,vobj):
+    def __div__(self,vobj):
         global resdict
              
         res = vallder(self.name+'/'+vobj.name,self.value/vobj.value)
         res.loc_ders={res.name+'_'+vobj.name:-self.value/vobj.value**2,res.name+'_'+self.name:1/vobj.value}        
         resdict.append(res) # dictinary containing results
         return res
-		
+
     def __add__(self,vobj):
         global resdict
         
@@ -105,7 +105,7 @@ class vallder:
         res.loc_ders={res.name+'_'+vobj.name:-1.0,res.name+'_'+self.name:1.0}        
         resdict.append(res) # dictinary containing results
         return res       	
-		
+
 def getvars(expr):
     # finds variables in an expression, parsing done using operator array ops
     global ops
